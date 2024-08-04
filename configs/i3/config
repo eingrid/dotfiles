@@ -216,7 +216,8 @@ exec nitrogen --restore
 #exec polybar
 
 #exec polybar
-exec ~/launch_polybar.sh
+exec polybar &
+#~/launch_polybar.sh
 
 # screen saving turn off
 exec xset s off

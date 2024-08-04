@@ -16,7 +16,10 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
+  
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = ["JetBrainsMono" "NerdFontsSymbolsOnly" "FiraCode" "DroidSansMono" ]; })
+  ];
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -104,6 +107,10 @@
       vscode
       tmux
       alacritty
+      rofi
+      polybar
+      neovim
+      #nerdfonts
     ];
   };
 

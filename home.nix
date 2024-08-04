@@ -94,8 +94,10 @@
     pciutils # lspci
     usbutils # lsusb
   ];
-  
-  #home.file.".config/i3/config".source
+
+  home.file."./launch_polybar.sh".source = ./configs/polybar/launch_polybar.sh;
+  home.file.".config/polybar/config.ini".source = ./configs/polybar/config.ini;
+  home.file.".config/i3/config".source = ./configs/i3/config;
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;

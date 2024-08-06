@@ -22,12 +22,7 @@
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/3024.yaml";
   stylix.polarity = "dark";
 
-  #stylix.image = ./wallpaper.png;
- #= {
-	#image = ./zusoedkl0qkb1.png;
-  	#base16Scheme = ./apathy.yaml ;
-  #};
-  fonts.packages = with pkgs; [
+ fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = ["JetBrainsMono" "NerdFontsSymbolsOnly" "FiraCode" "DroidSansMono" ]; })
   ];
   networking.hostName = "nixos"; # Define your hostname.
@@ -74,7 +69,7 @@
 	i3status
 	i3lock
 	i3blocks
-	feh
+	#feh
     ];
   };
 

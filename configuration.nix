@@ -17,11 +17,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   stylix.enable = true;
-  stylix.image = pkgs.fetchurl {
-    url = "https://www.pixelstalk.net/wp-content/uploads/2016/05/Epic-Anime-Awesome-Wallpapers.jpg";
-    sha256 = "enQo3wqhgf0FEPHj2coOCvo7DuZv+x5rL/WIo4qPI50=";
-  };
+  stylix.image = /home/nazara/.dotfiles/wp12329537.png; 
+ 
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/3024.yaml";
   stylix.polarity = "dark";
+
   #stylix.image = ./wallpaper.png;
  #= {
 	#image = ./zusoedkl0qkb1.png;
@@ -41,7 +41,7 @@
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  time.timeZone = "America/New_York";
+  time.timeZone = "Ukraine/Kyiv";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -74,6 +74,7 @@
 	i3status
 	i3lock
 	i3blocks
+	feh
     ];
   };
 

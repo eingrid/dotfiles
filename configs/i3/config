@@ -211,7 +211,10 @@ bindsym $mod+r mode "resize"
 exec xrandr --output HDMI-1-0 --auto --right-of eDP-1
 
 # set wallpaper
-exec nitrogen --restore
+# No need in this since stylix sets image 
+#exec nitrogen --restore
+
+#exec --no-startup-id feh --bg-scale ~/Downloads/nixos-wallpaper-default.png
 
 #exec polybar
 

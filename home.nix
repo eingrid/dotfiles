@@ -1,16 +1,19 @@
-{ config, pkgs, ... }:
-
-{
+{ config, pkgs, nix-colors, ... } : {
   # TODO please change the username & home directory to your own
+  imports = [
+      nix-colors.homeManagerModules.default
+  ];
+
+  colorScheme = nix-colors.colorSchemes.gruvbox-dark-hard;
+
   home.username = "nazara";
   home.homeDirectory = "/home/nazara";
-
   # link the configuration file in current directory to the specified location in home directory
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
 
   # link all files in `./scripts` to `~/.config/i3/scripts`
-  # home.file.".config/i3/scripts" = {
-  #   source = ./scripts;
+# home.file.".config/i3/scripts" = {
+#   source = ./scripts;
   #   recursive = true;   # link recursively
   #   executable = true;  # make all files executable
   # };
@@ -57,7 +60,7 @@
     nmap # A utility for network discovery and security auditing
     ipcalc  # it is a calculator for the IPv4/v6 addresses
 
-    # misc
+   # misc
     cowsay
     file
     which
@@ -73,7 +76,7 @@
     # it provides the command `nom` works just like `nix`
     # with more details log output
     nix-output-monitor
-
+    kitty
     # productivity
     hugo # static site generator
     glow # markdown previewer in terminal
@@ -117,12 +120,25 @@
     };
   };
 
+  programs = {
+    kitty = {
+      enable = true;
+      settings = {
+        #foreground = "#${config.colorScheme.palette.base05}";
+        #background = "#${config.colorScheme.palette.base00}";
+        # ...
+      };
+    };
+ };
+
   # alacritty - a cross-platform, GPU-accelerated terminal emulator
   programs.alacritty = {
     enable = true;
     # custom settings
     settings = {
       env.TERM = "xterm-256color";
+      #foreground = "#${config.colorScheme.palette.base05}";
+      #background = "#${config.colorScheme.palette.base00}";
       font = {
         size = 12;
        # draw_bold_text_with_bright_colors = true;

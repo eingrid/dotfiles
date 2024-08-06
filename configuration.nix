@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs,... }:
 
 {
   imports =
@@ -16,7 +16,17 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  
+  stylix.enable = true;
+  stylix.image = pkgs.fetchurl {
+    url = "https://www.pixelstalk.net/wp-content/uploads/2016/05/Epic-Anime-Awesome-Wallpapers.jpg";
+    sha256 = "enQo3wqhgf0FEPHj2coOCvo7DuZv+x5rL/WIo4qPI50=";
+  };
+  stylix.polarity = "dark";
+  #stylix.image = ./wallpaper.png;
+ #= {
+	#image = ./zusoedkl0qkb1.png;
+  	#base16Scheme = ./apathy.yaml ;
+  #};
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = ["JetBrainsMono" "NerdFontsSymbolsOnly" "FiraCode" "DroidSansMono" ]; })
   ];
@@ -110,7 +120,6 @@
       rofi
       polybar
       neovim
-      #nerdfonts
     ];
   };
 
@@ -132,6 +141,7 @@
   #  wget
   ];
 
+    
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

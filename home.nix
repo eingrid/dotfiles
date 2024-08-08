@@ -29,8 +29,15 @@
   #  "Xft.dpi" = 172;
   #};
 
+ 
+
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
+    #polybar audio
+    polybar-pulseaudio-control
+    
+    #to get some transparent windows and maybe other cool things
+    picom 
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
 
@@ -96,7 +103,26 @@
     ethtool
     pciutils # lspci
     usbutils # lsusb
+  
   ];
+
+  #neovim config
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+    plugins = [
+     {
+     plugin = pkgs.vimPlugins.telescope-nvim; 
+     #confing
+     #type = "lua";
+     }
+     {
+      plugin = pkgs.vimPlugins.gruvbox-nvim;
+      config = "colorscheme gruvbox";
+     }
+    ];
+  };
 
   home.file."./launch_polybar.sh".source = ./configs/polybar/launch_polybar.sh;
   home.file.".config/polybar/config.ini".source = ./configs/polybar/config.ini;

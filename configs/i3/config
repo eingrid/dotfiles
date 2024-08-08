@@ -54,6 +54,17 @@ floating_modifier $mod
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
+#i3 gaps
+gaps inner 5
+gaps outer 5
+
+
+#remove title bar for all windows
+for_window [class="^.*"] border pixel 0
+
+#add borders to windows
+default_border pixel 3
+
 # start a terminal
 bindsym $mod+Return exec kitty #i3-sensible-terminal
 
@@ -227,3 +238,6 @@ exec xset s off
 
 # keybord layout
 exec_always "setxkbmap -model pc104 -layout us,ua -variant ,, -option grp:win_space_toggle"
+
+# add transparent windows
+exec picom -b -i 0.9

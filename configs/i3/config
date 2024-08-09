@@ -63,7 +63,8 @@ gaps outer 5
 for_window [class="^.*"] border pixel 0
 
 #add borders to windows
-default_border pixel 3
+#client.focused #00C1FF #00C1FF #000088 #00C1FF
+#client.focused_inactive #2C2C2C #2C2C2C #ffffff #2C2C2C
 
 # start a terminal
 bindsym $mod+Return exec kitty #i3-sensible-terminal
@@ -174,8 +175,8 @@ assign [class="firefox"] $ws4
 assign [class="steam"] $ws3
 assign [class="dota2"] $ws3
 assign [class="Code"] $ws2
+assign [class="kitty"] $ws1
 assign [class="Alacritty"] $ws1
-
 
 
 # reload the configuration file
@@ -241,3 +242,6 @@ exec_always "setxkbmap -model pc104 -layout us,ua -variant ,, -option grp:win_sp
 
 # add transparent windows
 exec picom -b -i 0.9
+
+#run notification manager
+#exec dunst -config ~/.config/dunst/dunstrc

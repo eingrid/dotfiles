@@ -35,7 +35,7 @@
   home.packages = with pkgs; [
     #polybar audio
     polybar-pulseaudio-control
-    
+    dunst
     #to get some transparent windows and maybe other cool things
     picom 
     # here is some command line tools I use frequently
@@ -112,11 +112,13 @@
     viAlias = true;
     vimAlias = true;
     plugins = [
+     pkgs.vimPlugins.colorizer
      {
      plugin = pkgs.vimPlugins.telescope-nvim; 
      #confing
      #type = "lua";
      }
+     
      {
       plugin = pkgs.vimPlugins.gruvbox-nvim;
       config = "colorscheme gruvbox";
@@ -127,6 +129,7 @@
   home.file."./launch_polybar.sh".source = ./configs/polybar/launch_polybar.sh;
   home.file.".config/polybar/config.ini".source = ./configs/polybar/config.ini;
   home.file.".config/i3/config".source = ./configs/i3/config;
+  home.file.".config/dunst/dunstrc".source = ./configs/dunst/dunstrc;
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;

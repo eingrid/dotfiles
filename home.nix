@@ -1,10 +1,10 @@
 { config, pkgs, nix-colors, ... } : {
   # TODO please change the username & home directory to your own
-  imports = [
-      nix-colors.homeManagerModules.default
-  ];
+  #imports = [
+  #    nix-colors.homeManagerModules.default
+  #];
 
-  colorScheme = nix-colors.colorSchemes.gruvbox-dark-hard;
+  #colorScheme = nix-colors.colorSchemes.gruvbox-dark-hard;
 
   home.username = "nazara";
   home.homeDirectory = "/home/nazara";
@@ -35,6 +35,7 @@
   home.packages = with pkgs; [
     #polybar audio
     polybar-pulseaudio-control
+    polybar
     dunst
     #to get some transparent windows and maybe other cool things
     picom 
@@ -131,6 +132,12 @@
   home.file.".config/i3/config".source = ./configs/i3/config;
   home.file.".config/dunst/dunstrc".source = ./configs/dunst/dunstrc;
   # basic configuration of git, please change to your own
+  #services.polybar = {
+#	enable = true;
+#	config = ./configs/polybar/config.ini;
+ #       script = "polybar &";
+  #};
+
   programs.git = {
     enable = true;
     userName = "Nazar Andrushko";

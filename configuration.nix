@@ -4,7 +4,10 @@
 
 { config, pkgs,... }:
 
-{
+let
+  # Import env.nix
+  env = import ./env.nix;
+in {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -19,7 +22,7 @@
   stylix.enable = true;
   stylix.image = /home/nazara/.dotfiles/wp12329537.png; 
  
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/3024.yaml";
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/${env.theme}";
   stylix.polarity = "dark";
 
  fonts.packages = with pkgs; [
